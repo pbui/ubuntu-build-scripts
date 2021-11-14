@@ -52,15 +52,15 @@ do_depends() {
 }
 
 do_build() {
+    CONFIGURE_ARGS=${CONFIGURE_ARGS:-"--prefix=/usr/local"}
+    SRCDIR=${SRCDIR:-$WORKDIR/$PKGNAME-$VERSION}
+
     if fn_exists "build"; then
     	build
     	return $?
     fi
 
     # Default action
-    CONFIGURE_ARGS=${CONFIGURE_ARGS:-"--prefix=/usr/local"}
-    SRCDIR=${SRCDIR:-$WORKDIR/$PKGNAME-$VERSION}
-
     cd $SRCDIR
     ./configure $CONFIGURE_ARGS
     make
