@@ -11,5 +11,5 @@ build() {
 }
 
 install() {
-    sudo install -m 755 gotop /usr/local/bin/gotop
+    sudo install -D -m 755 gotop /usr/local/bin/gotop
 }
