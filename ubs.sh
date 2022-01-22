@@ -25,7 +25,10 @@ do_fetch() {
     fi
 
     # Default action
-    curl -L $DISTFILE > $WORKDIR/$TARBALL
+    for distfile in $DISTFILE; do
+	tarball=$(basename $distfile)
+	curl -L -o $WORKDIR/$tarball $DISTFILE
+    done
 }
 
 do_extract() {
@@ -36,7 +39,10 @@ do_extract() {
 
     # Default action
     cd $WORKDIR
-    tar xvf $TARBALL
+    for distfile in $DISTFILE; do
+	tarball=$(basename $distfile)
+	tar xvf $tarball
+    done
 }
 
 do_depends() {
