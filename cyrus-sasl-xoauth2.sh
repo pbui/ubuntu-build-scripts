@@ -2,7 +2,6 @@ PKGNAME=cyrus-sasl-xoauth2
 VERSION=0.2
 WORKDIR=$(realpath $PKGNAME)
 MAKEDEPENDS="autoconf libsasl2-dev libtool"
-TARBALL=$PKGNAME-$VERSION.tar.gz
 DISTFILE=https://github.com/moriyoshi/$PKGNAME/archive/refs/tags/v$VERSION.tar.gz
 
 build() {
