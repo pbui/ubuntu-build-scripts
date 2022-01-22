@@ -27,7 +27,7 @@ do_fetch() {
     # Default action
     for distfile in $DISTFILE; do
 	tarball=$(basename $distfile)
-	curl -L -o $WORKDIR/$tarball $DISTFILE
+	curl -L -o $WORKDIR/$tarball $distfile
     done
 }
 
