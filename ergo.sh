@@ -3,7 +3,6 @@ VERSION=2.9.1
 WORKDIR=$(realpath $PKGNAME)
 SRCDIR=$WORKDIR/$PKGNAME-$VERSION-linux-x86_64
 MAKEDEPENDS=""
-TARBALL=$PKGNAME-$VERSION.tar.xz
 DISTFILE=https://github.com/ergochat/$PKGNAME/releases/download/v$VERSION/$PKGNAME-$VERSION-linux-x86_64.tar.gz
 
 build() {
