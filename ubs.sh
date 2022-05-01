@@ -57,6 +57,25 @@ do_depends() {
     fi
 }
 
+do_patches() {
+    SRCDIR=${SRCDIR:-$WORKDIR/$PKGNAME-$VERSION}
+
+    if fn_exists "patches"; then
+    	patches
+    	return $?
+    fi
+
+    # Default action
+    if [ -n "$PATCHES" ]; then
+    	cd $SRCDIR
+    	for patch in $PATCHES; do
+	    patchfile=$(basename $patch)
+	    curl -L -o $patchfile $patch
+	    patch -p1 < $patchfile
+	done
+    fi
+}
+
 do_build() {
     CONFIGURE_ARGS=${CONFIGURE_ARGS:-"--prefix=/usr/local"}
     SRCDIR=${SRCDIR:-$WORKDIR/$PKGNAME-$VERSION}
@@ -101,6 +120,7 @@ do_ubs() {
     do_fetch   && \
     do_extract && \
     do_depends && \
+    do_patches && \
     do_build   && \
     do_install && \
     do_cleanup
