@@ -1,5 +1,5 @@
 PKGNAME=msmtp
-VERSION=1.8.23
+VERSION=1.8.24
 WORKDIR=$(realpath $PKGNAME)
 MAKEDEPENDS="autoconf libtool libssl-dev pkg-config libgnutls28-dev"
 DISTFILE=https://marlam.de/$PKGNAME/releases/$PKGNAME-$VERSION.tar.xz
